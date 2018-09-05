@@ -1,11 +1,16 @@
 <template>
 <div>
         <Divider><h2>4th September</h2></Divider>
-        <div class="center">        
+        <div class="center" v-for="i in feed" :key="i.id">        
             <Card dis-hover class="card">
-              <Item/>
+              <Item 
+              :headline="i.title"
+              :description = "i.description"
+              :link = "i.link"
+              :image = "i.image"
+              />
             </Card>
-            <Card dis-hover class="card">
+            <!-- <Card dis-hover class="card">
               <Item/>
             </Card>
             <Card dis-hover class="card">
@@ -28,7 +33,7 @@
             </Card>
             <Card dis-hover class="card">
               <Item/>
-            </Card>
+            </Card> -->
       </div > 
     </div>
 </template>
@@ -37,13 +42,20 @@
 
 <script>
 import Item from "@/components/Item";
+import DataService from "@/services/dataservice";
 export default {
   name: "Feed",
   components: {
     Item
   },
   data() {
-    return {};
+    return {
+      feed: []
+    };
+  },
+  async mounted() {
+    this.feeds = (await DataService.index()).data;
+    this.feed = this.feeds;
   },
   methods: {
     handleReachBottom() {

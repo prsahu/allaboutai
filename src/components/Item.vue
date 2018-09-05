@@ -2,39 +2,30 @@
     <v-flex xs12>
         <v-card color="light-grey" class="black--text">
             <v-layout>
-            <v-flex xs5>
-                <v-img
-                src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
-                height="125px"
-                contain
-                ></v-img>
-            </v-flex>
-            <v-flex xs7>
-                <v-card-title primary-title>
-                <div>                    
-                    <h2>Article headline</h2>                    
-                </div>
-                </v-card-title>
-                <div>Description Article</div>
-            </v-flex>
+                <v-flex xs5>
+                    <v-img
+                    src="https://cdn.vuetifyjs.com/images/cards/foster.jpg"
+                    height="125px"
+                    contain/>
+                </v-flex>
+                <v-flex class="text-sm-left">
+                    <v-card-title primary-title>
+                        <h2>
+                            <a :href="link">{{headline}}</a>
+                        </h2>
+                    </v-card-title>
+                    <div>{{description}}</div>
+                </v-flex>
             </v-layout>
-            <v-divider light></v-divider>
-            <!-- <v-card-actions class="pa-3">
-            Rate this album
-            <v-spacer></v-spacer>
-             <v-icon>star_border</v-icon>
-            <v-icon>star_border</v-icon>
-            <v-icon>star_border</v-icon>
-            <v-icon>star_border</v-icon>
-            <v-icon>star_border</v-icon> 
-            </v-card-actions> -->
+            <!-- <v-divider light></v-divider>            -->
         </v-card>
     </v-flex>
 </template>
 
 <script>
 export default {
-  name: "Item"
+  name: "Item",
+  props: ["headline", "description", "image", "link"]
 };
 </script>
 
