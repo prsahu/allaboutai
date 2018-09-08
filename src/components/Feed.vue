@@ -1,52 +1,14 @@
 <template>
-<div>
-        <Divider><h2>4th September</h2></Divider>
-        <div class="center" v-for="i in feed" :key="i.id">        
-            <Card dis-hover class="card">
-              <Item 
-              :headline="i.title"
-              :description = "i.description"
-              :link = "i.link"
-              :image = "i.image"
-              />
-            </Card>
-            <!-- <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>        
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card> -->
-      </div > 
-    </div>
+<feed-comp :feed="feed"/>
 </template>
 
-
-
 <script>
-import Item from "@/components/Item";
+import FeedComp from "@/components/FeedComp";
 import DataService from "@/services/dataservice";
 export default {
   name: "Feed",
   components: {
-    Item
+    FeedComp
   },
   data() {
     return {

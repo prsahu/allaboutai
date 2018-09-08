@@ -4,6 +4,8 @@
       v-model="drawer"
       fixed
       app
+      value=0
+      mobile-break-point="10240"
     >
       <v-list dense>
         <v-list-tile @click="">
@@ -11,15 +13,23 @@
             <v-icon>home</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Home</v-list-tile-title>
+            <v-list-tile-title>Startups</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
         <v-list-tile @click="">
           <v-list-tile-action>
-            <v-icon>contact_mail</v-icon>
+            <v-icon>search</v-icon>
           </v-list-tile-action>
           <v-list-tile-content>
-            <v-list-tile-title>Contact</v-list-tile-title>
+            <v-list-tile-title>Research</v-list-tile-title>
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile @click="">
+          <v-list-tile-action>
+            <v-icon>subject</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            <v-list-tile-title>Tutorials</v-list-tile-title>
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
@@ -29,7 +39,14 @@
       <v-toolbar-title>All About AI</v-toolbar-title>
     </v-toolbar>
     <v-content>
+      <div class="text-xs-center">
+    <v-pagination
+      v-model="page"
+      :length="6"
+    ></v-pagination>
+  </div>
       <v-container fill-height fill-width align-start>
+        
       <feed/>
       </v-container>
     </v-content>
