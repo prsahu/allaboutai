@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/inlineDisqussions.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/inlineDisqussions.css" />
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -9,4 +12,9 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+    jQuery(document).ready(function() {
+            jQuery("p").inlineDisqussions();
+          });
+  </script>
 </html>
