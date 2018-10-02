@@ -1,49 +1,23 @@
 <template>
-<div>
-        <Divider><h2>4th September</h2></Divider>
-        <div class="center">        
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>        
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-            <Card dis-hover class="card">
-              <Item/>
-            </Card>
-      </div > 
-    </div>
+<feed-comp :feed="feed"/>
 </template>
 
-
-
 <script>
-import Item from "@/components/Item";
+import FeedComp from "@/components/FeedComp";
+import DataService from "@/services/dataservice";
 export default {
   name: "Feed",
   components: {
-    Item
+    FeedComp
   },
   data() {
-    return {};
+    return {
+      feed: []
+    };
+  },
+  async mounted() {
+    this.feeds = (await DataService.index()).data;
+    this.feed = this.feeds;
   },
   methods: {
     handleReachBottom() {
